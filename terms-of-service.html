@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Voicle</title>
+    <link rel="stylesheet" href="page-styles.css">
+    <style>
+        /* Additional page-specific styles if needed */
+    </style>
+</head>
+<body>
+    <!-- Background Sound Wave Animation -->
+    <div class="sound-wave" id="soundWave">
+        <!-- Bars will be generated dynamically by JavaScript -->
+    </div>
+
+    <div class="main-content">
+        <div class="page-content">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            
+            <h1 class="page-title">Terms of Service</h1>
+            <p class="content-text"><strong>Last updated:</strong> January 1, 2025</p>
+
+            <div class="section-title">Welcome to Voicle</div>
+            <p class="content-text">
+                By accessing or using Voicle, you agree to these Terms of Service. Voicle is a voice-only, landmark-based dating platform designed to foster authentic connections through voice interactions while prioritizing user privacy and safety.
+            </p>
+
+            <div class="section-title">Eligibility</div>
+            <p class="content-text">
+                You must be at least 18 years old to use Voicle. By creating an account, you confirm that you meet this age requirement and have the legal capacity to enter into these terms.
+            </p>
+
+            <div class="section-title">Account Responsibilities</div>
+            <p class="content-text">
+                • Provide accurate information during registration
+            </p>
+            <p class="content-text">
+                • Maintain the security of your account credentials
+            </p>
+            <p class="content-text">
+                • Use only your own voice in all interactions
+            </p>
+            <p class="content-text">
+                • Report any suspicious or inappropriate behavior
+            </p>
+
+            <div class="section-title">Voice-Only Platform Rules</div>
+            <p class="content-text">
+                Voicle is exclusively voice-based. Users are prohibited from:
+            </p>
+            <p class="content-text">
+                • Sharing photos, videos, or other visual content
+            </p>
+            <p class="content-text">
+                • Using voice modulation or artificial voices
+            </p>
+            <p class="content-text">
+                • Recording or sharing voice messages outside the platform
+            </p>
+            <p class="content-text">
+                • Attempting to identify users through voice recognition technology
+            </p>
+
+            <div class="section-title">Landmark-Based Matching</div>
+            <p class="content-text">
+                Our landmark-based system connects users based on proximity to public landmarks and venues. Users agree to:
+            </p>
+            <p class="content-text">
+                • Provide general location preferences for matching
+            </p>
+            <p class="content-text">
+                • Meet only in safe, public locations
+            </p>
+            <p class="content-text">
+                • Respect location privacy of other users
+            </p>
+
+            <div class="section-title">Community Guidelines</div>
+            <p class="content-text">
+                Voicle maintains a safe, respectful environment. Prohibited behaviors include:
+            </p>
+            <p class="content-text">
+                • Harassment, bullying, or threatening language
+            </p>
+            <p class="content-text">
+                • Sharing personal contact information unsolicited
+            </p>
+            <p class="content-text">
+                • Commercial solicitation or spam
+            </p>
+            <p class="content-text">
+                • Impersonation or false representation
+            </p>
+            <p class="content-text">
+                • Illegal activities or content
+            </p>
+
+            <div class="section-title">Privacy and Data</div>
+            <p class="content-text">
+                Your privacy is paramount. By using Voicle, you understand that:
+            </p>
+            <p class="content-text">
+                • Voice messages are encrypted and temporary
+            </p>
+            <p class="content-text">
+                • Location data is anonymized and approximate
+            </p>
+            <p class="content-text">
+                • No data is sold to third parties
+            </p>
+            <p class="content-text">
+                • Account deletion permanently removes all data
+            </p>
+
+            <div class="section-title">Government Compliance</div>
+            <p class="content-text">
+                Voicle operates in full compliance with applicable laws and regulations. We cooperate with law enforcement when legally required while maintaining user privacy protections.
+            </p>
+
+            <div class="section-title">Termination</div>
+            <p class="content-text">
+                We reserve the right to suspend or terminate accounts that violate these terms. Users may delete their accounts at any time through the app settings.
+            </p>
+
+            <div class="section-title">Disclaimers</div>
+            <p class="content-text">
+                Voicle is provided "as is" without warranties. We are not responsible for user interactions, meetings, or relationships formed through the platform. Users meet at their own risk and should prioritize personal safety.
+            </p>
+
+            <div class="section-title">Contact Us</div>
+            <p class="content-text">
+                Questions about these terms? Contact us at legal@voicle.com or through our support channels.
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+            <a href="delete-account.html" class="footer-link">Delete Account</a>
+            <a href="contact-us.html" class="footer-link">Contact Us</a>
+            <a href="support.html" class="footer-link">Support</a>
+            <a href="data-policy.html" class="footer-link">Data Policy</a>
+        </div>
+        <p class="footer-text">© 2025 Voicle. All rights reserved.</p>
+    </footer>
+
+    <script>
+        class WaveAnimation {
+            constructor() {
+                this.soundWave = document.getElementById('soundWave');
+                this.bars = [];
+                this.init();
+                this.animate();
+                
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    this.cleanup();
+                    this.init();
+                });
+            }
+
+            init() {
+                // Calculate number of bars based on screen width
+                const screenWidth = window.innerWidth;
+                const barWidth = 11; // 1px bar width + 10px gap
+                this.barCount = Math.floor(screenWidth / barWidth);
+                
+                // Create bars
+                for (let i = 0; i < this.barCount; i++) {
+                    this.createBar(i);
+                }
+            }
+
+            createBar(index) {
+                const bar = document.createElement('div');
+                bar.className = 'wave-bar';
+                
+                // Random height between 6vh and 25vh
+                const minHeight = 6;
+                const maxHeight = 25;
+                const height = minHeight + Math.random() * (maxHeight - minHeight);
+                
+                // Individual animation timing for each bar
+                const animationDuration = 1.2 + Math.random() * 0.8; // 1.2-2.0s
+                const animationDelay = Math.random() * 2; // 0-2s delay
+                
+                bar.style.height = `${height}vh`;
+                bar.style.animationDuration = `${animationDuration}s`;
+                bar.style.animationDelay = `${animationDelay}s`;
+                
+                this.soundWave.appendChild(bar);
+                this.bars.push({
+                    element: bar,
+                    baseHeight: height,
+                    duration: animationDuration,
+                    delay: animationDelay,
+                    phase: Math.random() * Math.PI * 2 // Random starting phase
+                });
+            }
+
+            animate() {
+                // Use requestAnimationFrame for smooth animation
+                const animateFrame = (timestamp) => {
+                    this.bars.forEach((bar, index) => {
+                        // Calculate wave effect with individual timing
+                        const time = (timestamp + bar.delay * 1000) / 1000;
+                        const wave = Math.sin(time * (2 * Math.PI / bar.duration) + bar.phase);
+                        
+                        // Scale between 0.3 and 1.0
+                        const scale = 0.3 + (wave + 1) / 2 * 0.7;
+                        
+                        // Apply opacity variation
+                        const opacity = 0.3 + (wave + 1) / 2 * 0.4;
+                        
+                        bar.element.style.transform = `scaleY(${scale})`;
+                        bar.element.style.opacity = opacity;
+                    });
+                    
+                    requestAnimationFrame(animateFrame);
+                };
+                
+                requestAnimationFrame(animateFrame);
+            }
+
+            cleanup() {
+                this.bars.forEach(bar => {
+                    if (bar.element && bar.element.parentNode) {
+                        bar.element.parentNode.removeChild(bar.element);
+                    }
+                });
+                this.bars = [];
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new WaveAnimation();
+        });
+    </script>
+</body>
+</html>

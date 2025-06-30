@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'Handlee-Regular';
+    src: url('./src/assets/fonts/Handlee-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Handlee-Regular', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    z-index: 10;
+    position: relative;
+    transition: filter 0.3s ease;
+}
+
+.main-content.blurred {
+    filter: blur(3px);
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tagline {
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.sound-wave {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    z-index: 0;
+    background: transparent;
+    pointer-events: none;
+}
+
+.wave-bar {
+    width: 1px;
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.2) 30%,
+        rgba(255, 255, 255, 0.15) 60%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    border-radius: 0.5px;
+    transform-origin: bottom;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: scaleY(0.3);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* Enhanced wave effect with pulsing glow */
+.sound-wave::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 30%,
+        transparent 70%
+    );
+    animation: pulse 2s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.6;
+    }
+}
+
+.download-section {
+    text-align: center;
+    margin: 0;
+}
+
+.download-title {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 16px;
+    font-family: 'Handlee-Regular', sans-serif;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background-color: transparent;
+    border: 1px solid #2c2c2c;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Handlee-Regular', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 160px;
+}
+
+.download-btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+.store-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.store-label {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+.store-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    transition: filter 0.3s ease;
+}
+
+.footer.blurred {
+    filter: blur(3px);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+}
+
+.footer-text {
+    color: #777777;
+    font-size: 10px;
+}

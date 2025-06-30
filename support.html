@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Voicle</title>
+    <link rel="stylesheet" href="page-styles.css">
+
+</head>
+<body>
+    <!-- Background Sound Wave Animation -->
+    <div class="sound-wave" id="soundWave">
+        <!-- Bars will be generated dynamically by JavaScript -->
+    </div>
+
+    <div class="main-content">
+        <div class="page-content">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            
+            <h1 class="page-title">Support Center</h1>
+            
+            <p class="content-text" style="text-align: center; font-size: 16px; margin-bottom: 30px;">
+                Welcome to Voicle Support! Find answers to common questions or get personalized help from our team.
+            </p>
+
+            <div class="support-cards">
+                <div class="support-card">
+                    <div class="support-icon">🎤</div>
+                    <div class="support-title">Voice Features</div>
+                    <div class="support-description">Learn about voice recording, playback, and quality settings</div>
+                    <a href="#voice-faq" class="support-link">Voice Help</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">📍</div>
+                    <div class="support-title">Location & Landmarks</div>
+                    <div class="support-description">Understand how our landmark-based matching works</div>
+                    <a href="#location-faq" class="support-link">Location Help</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">🔒</div>
+                    <div class="support-title">Privacy & Safety</div>
+                    <div class="support-description">Your privacy and safety are our top priorities</div>
+                    <a href="#privacy-faq" class="support-link">Privacy Help</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">💬</div>
+                    <div class="support-title">Messaging & Matches</div>
+                    <div class="support-description">Get help with conversations and finding matches</div>
+                    <a href="#messaging-faq" class="support-link">Messaging Help</a>
+                </div>
+            </div>
+
+            <div class="section-title">Frequently Asked Questions</div>
+
+            <div id="voice-faq">
+                <h3 style="color: #ffffff; margin: 20px 0 10px 0;">🎤 Voice Features</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How do I record a good quality voice message?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        For best results: Use a quiet environment, speak clearly at normal volume, hold your phone 6-8 inches from your mouth, and ensure good cellular or Wi-Fi connection. Our app automatically optimizes audio quality.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can I edit or delete voice messages after sending?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Once sent, voice messages cannot be edited. However, you can delete messages within 1 hour of sending. After 24 hours, all voice messages are automatically deleted for privacy.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Why can't I hear voice messages clearly?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Check your device volume, ensure your phone speaker isn't blocked, try using headphones, or check your internet connection. If issues persist, contact our technical support.
+                    </div>
+                </div>
+            </div>
+
+            <div id="location-faq">
+                <h3 style="color: #ffffff; margin: 20px 0 10px 0;">📍 Location & Landmarks</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How does landmark-based matching work?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Instead of using exact GPS coordinates, we use nearby public landmarks (coffee shops, parks, shopping centers) to suggest matches within your preferred radius. This protects your exact location while enabling local connections.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can someone see my exact location?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        No, never. We only show general landmark areas (within 5km radius) and never reveal your exact address, workplace, or real-time location. Your privacy is protected by design.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How do I change my location preferences?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Go to Settings > Location Preferences to adjust your matching radius, add or remove landmark areas, and control location-based features. You can pause location matching anytime.
+                    </div>
+                </div>
+            </div>
+
+            <div id="privacy-faq">
+                <h3 style="color: #ffffff; margin: 20px 0 10px 0;">🔒 Privacy & Safety</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How is my voice data protected?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        All voice messages are end-to-end encrypted, automatically deleted after 24 hours, and never stored permanently on our servers. We use zero-knowledge architecture - even we can't access your private conversations.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How do I report inappropriate behavior?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Use the report button in any conversation or profile. Our safety team reviews all reports within 6 hours. For emergencies, contact local authorities first, then report to us.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can I block someone?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, you can block any user instantly. Blocked users cannot contact you, see your profile, or match with you. They won't be notified that they've been blocked.
+                    </div>
+                </div>
+            </div>
+
+            <div id="messaging-faq">
+                <h3 style="color: #ffffff; margin: 20px 0 10px 0;">💬 Messaging & Matches</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How does voice-only matching work?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Our algorithm analyzes voice patterns, tone, and conversational style (not content) along with your preferences to suggest compatible matches. It's about finding voices that resonate with you.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Why aren't I getting matches?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Try expanding your location radius, updating your preferences, or recording a new voice intro. Be patient - quality matches take time. Our system prioritizes compatibility over quantity.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How long do conversations last?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Conversations remain active as long as both users are engaged. Individual voice messages are deleted after 24 hours, but the conversation thread persists until either user chooses to end it.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">Still Need Help?</div>
+            <p class="content-text">
+                Can't find what you're looking for? Our support team is here to help!
+            </p>
+            <p class="content-text">
+                📧 <strong>Email:</strong> support@voicle.com<br>
+                ⏰ <strong>Response Time:</strong> 12-24 hours<br>
+                🕐 <strong>Hours:</strong> Monday-Friday, 9 AM - 6 PM PST
+            </p>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="contact-us.html" class="support-link" style="font-size: 16px; padding: 12px 24px;">Contact Support Team</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+            <a href="delete-account.html" class="footer-link">Delete Account</a>
+            <a href="contact-us.html" class="footer-link">Contact Us</a>
+            <a href="support.html" class="footer-link">Support</a>
+            <a href="data-policy.html" class="footer-link">Data Policy</a>
+        </div>
+        <p class="footer-text">© 2025 Voicle. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Wave animation
+        class WaveAnimation {
+            constructor() {
+                this.soundWave = document.getElementById('soundWave');
+                this.bars = [];
+                this.init();
+                this.animate();
+                
+                window.addEventListener('resize', () => {
+                    this.cleanup();
+                    this.init();
+                });
+            }
+
+            init() {
+                const screenWidth = window.innerWidth;
+                const barWidth = 11;
+                this.barCount = Math.floor(screenWidth / barWidth);
+                
+                for (let i = 0; i < this.barCount; i++) {
+                    this.createBar(i);
+                }
+            }
+
+            createBar(index) {
+                const bar = document.createElement('div');
+                bar.className = 'wave-bar';
+                
+                const minHeight = 6;
+                const maxHeight = 25;
+                const height = minHeight + Math.random() * (maxHeight - minHeight);
+                
+                const animationDuration = 1.2 + Math.random() * 0.8;
+                const animationDelay = Math.random() * 2;
+                
+                bar.style.height = `${height}vh`;
+                bar.style.animationDuration = `${animationDuration}s`;
+                bar.style.animationDelay = `${animationDelay}s`;
+                
+                this.soundWave.appendChild(bar);
+                this.bars.push({
+                    element: bar,
+                    baseHeight: height,
+                    duration: animationDuration,
+                    delay: animationDelay,
+                    phase: Math.random() * Math.PI * 2
+                });
+            }
+
+            animate() {
+                const animateFrame = (timestamp) => {
+                    this.bars.forEach((bar, index) => {
+                        const time = (timestamp + bar.delay * 1000) / 1000;
+                        const wave = Math.sin(time * (2 * Math.PI / bar.duration) + bar.phase);
+                        
+                        const scale = 0.3 + (wave + 1) / 2 * 0.7;
+                        const opacity = 0.3 + (wave + 1) / 2 * 0.4;
+                        
+                        bar.element.style.transform = `scaleY(${scale})`;
+                        bar.element.style.opacity = opacity;
+                    });
+                    
+                    requestAnimationFrame(animateFrame);
+                };
+                
+                requestAnimationFrame(animateFrame);
+            }
+
+            cleanup() {
+                this.bars.forEach(bar => {
+                    if (bar.element && bar.element.parentNode) {
+                        bar.element.parentNode.removeChild(bar.element);
+                    }
+                });
+                this.bars = [];
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new WaveAnimation();
+        });
+
+        // FAQ toggle functionality
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            
+            answer.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

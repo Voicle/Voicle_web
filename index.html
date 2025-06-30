@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voicle - Minimalistic Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Sound Wave Animation -->
+    <div class="sound-wave" id="soundWave">
+        <!-- Bars will be generated dynamically by JavaScript -->
+    </div>
+
+    <div class="main-content">
+        <div class="logo-container">
+            <div class="logo">
+                <img  src="./src/assets/images/logos/logo_voicle.png" alt="Voicle Logo" class="logo-image" width="220px">
+            </div>
+            
+            <div class="tagline">Let your voice flirt first!</div>
+        </div>
+
+        <div class="download-section">
+            <div class="download-buttons">
+                <button class="download-btn android-btn">
+                    <div class="store-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 20.5v-17c0-.75.58-1.5 1.25-1.5.16 0 .33.04.49.12l13.89 8.5c.31.19.37.63.14.89L4.38 20.24c-.13.08-.25.12-.38.12-.67 0-1.25-.75-1.25-1.5v-17z" fill="currentColor"/>
+                            <path d="m13.5 12-4.36 4.26L22 8.5 13.5 12z" fill="currentColor"/>
+                            <path d="m13.5 12 4.36-4.26L5 15.5 13.5 12z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="store-text">
+                        <div class="store-label">Get it on</div>
+                        <div class="store-name">Google Play</div>
+                    </div>
+                </button>
+                
+                <button class="download-btn ios-btn">
+                    <div class="store-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="store-text">
+                        <div class="store-label">Download on the</div>
+                        <div class="store-name">App Store</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+            <a href="delete-account.html" class="footer-link">Delete Account</a>
+            <a href="contact-us.html" class="footer-link">Contact Us</a>
+            <a href="support.html" class="footer-link">Support</a>
+            <a href="data-policy.html" class="footer-link">Data Policy</a>
+        </div>
+        <p class="footer-text">© 2025 Voicle. All rights reserved.</p>
+    </footer>
+
+    <script>
+        class WaveAnimation {
+            constructor() {
+                this.soundWave = document.getElementById('soundWave');
+                this.bars = [];
+                this.init();
+                this.animate();
+                
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    this.cleanup();
+                    this.init();
+                });
+            }
+
+            init() {
+                // Calculate number of bars based on screen width
+                const screenWidth = window.innerWidth;
+                const barWidth = 11; // 1px bar width + 10px gap
+                this.barCount = Math.floor(screenWidth / barWidth);
+                
+                // Create bars
+                for (let i = 0; i < this.barCount; i++) {
+                    this.createBar(i);
+                }
+            }
+
+            createBar(index) {
+                const bar = document.createElement('div');
+                bar.className = 'wave-bar';
+                
+                // Random height between 6vh and 25vh
+                const minHeight = 6;
+                const maxHeight = 25;
+                const height = minHeight + Math.random() * (maxHeight - minHeight);
+                
+                // Individual animation timing for each bar
+                const animationDuration = 1.2 + Math.random() * 0.8; // 1.2-2.0s
+                const animationDelay = Math.random() * 2; // 0-2s delay
+                
+                bar.style.height = `${height}vh`;
+                bar.style.animationDuration = `${animationDuration}s`;
+                bar.style.animationDelay = `${animationDelay}s`;
+                
+                this.soundWave.appendChild(bar);
+                this.bars.push({
+                    element: bar,
+                    baseHeight: height,
+                    duration: animationDuration,
+                    delay: animationDelay,
+                    phase: Math.random() * Math.PI * 2 // Random starting phase
+                });
+            }
+
+            animate() {
+                // Use requestAnimationFrame for smooth animation
+                const animateFrame = (timestamp) => {
+                    this.bars.forEach((bar, index) => {
+                        // Calculate wave effect with individual timing
+                        const time = (timestamp + bar.delay * 1000) / 1000;
+                        const wave = Math.sin(time * (2 * Math.PI / bar.duration) + bar.phase);
+                        
+                        // Scale between 0.3 and 1.0
+                        const scale = 0.3 + (wave + 1) / 2 * 0.7;
+                        
+                        // Apply opacity variation
+                        const opacity = 0.3 + (wave + 1) / 2 * 0.4;
+                        
+                        bar.element.style.transform = `scaleY(${scale})`;
+                        bar.element.style.opacity = opacity;
+                    });
+                    
+                    requestAnimationFrame(animateFrame);
+                };
+                
+                requestAnimationFrame(animateFrame);
+            }
+
+            cleanup() {
+                this.bars.forEach(bar => {
+                    if (bar.element && bar.element.parentNode) {
+                        bar.element.parentNode.removeChild(bar.element);
+                    }
+                });
+                this.bars = [];
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new WaveAnimation();
+        });
+    </script>
+</body>
+</html>

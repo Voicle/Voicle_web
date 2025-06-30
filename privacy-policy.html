@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Voicle</title>
+    <link rel="stylesheet" href="page-styles.css">
+    <style>
+        /* Additional page-specific styles if needed */
+    </style>
+</head>
+<body>
+    <!-- Background Sound Wave Animation -->
+    <div class="sound-wave" id="soundWave">
+        <!-- Bars will be generated dynamically by JavaScript -->
+    </div>
+
+    <div class="main-content">
+        <div class="page-content">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            
+            <h1 class="page-title">Privacy Policy</h1>
+            <p class="content-text"><strong>Last updated:</strong> January 1, 2025</p>
+
+            <div class="section-title">Our Privacy Commitment</div>
+            <p class="content-text">
+                At Voicle, privacy isn't just a feature—it's our foundation. As a voice-only, landmark-based dating app, we've built our entire platform around protecting your personal information while creating meaningful connections through authentic voice interactions.
+            </p>
+
+            <div class="section-title">Information We Collect</div>
+            <p class="content-text">
+                <strong>Voice Data:</strong> We temporarily process voice messages for matching purposes only. Voice recordings are encrypted and automatically deleted after 24 hours unless saved by mutual consent.
+            </p>
+            <p class="content-text">
+                <strong>Location Data:</strong> We use approximate landmark-based location (within 5km radius) to suggest nearby matches. We never store your exact GPS coordinates or real-time location.
+            </p>
+            <p class="content-text">
+                <strong>Profile Information:</strong> Basic demographics (age range, interests) provided voluntarily by you. No photos, real names, or social media connections required.
+            </p>
+
+            <div class="section-title">How We Protect Your Data</div>
+            <p class="content-text">
+                • End-to-end encryption for all voice communications
+            </p>
+            <p class="content-text">
+                • Zero-knowledge architecture - we cannot access your private conversations
+            </p>
+            <p class="content-text">
+                • Automatic data deletion policies for temporary content
+            </p>
+            <p class="content-text">
+                • No data sharing with third parties for advertising
+            </p>
+            <p class="content-text">
+                • Regular security audits and compliance checks
+            </p>
+
+            <div class="section-title">Landmark-Based Privacy</div>
+            <p class="content-text">
+                Our unique landmark-based system ensures privacy by design. Instead of tracking your exact location, we use general landmarks and public places to suggest matches within your preferred radius, protecting your home and work locations.
+            </p>
+
+            <div class="section-title">Your Rights</div>
+            <p class="content-text">
+                • Complete data deletion upon account termination
+            </p>
+            <p class="content-text">
+                • Access to all data we store about you
+            </p>
+            <p class="content-text">
+                • Opt-out of data processing at any time
+            </p>
+            <p class="content-text">
+                • Control over voice message retention
+            </p>
+
+            <div class="section-title">Government Compliance</div>
+            <p class="content-text">
+                Voicle fully complies with all applicable government regulations including GDPR, CCPA, and local data protection laws. We maintain transparency reports and work with regulators to ensure user safety while protecting privacy.
+            </p>
+
+            <div class="section-title">Contact Us</div>
+            <p class="content-text">
+                For privacy-related questions or concerns, contact our Data Protection Officer at privacy@voicle.com or through our secure contact form.
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+            <a href="delete-account.html" class="footer-link">Delete Account</a>
+            <a href="contact-us.html" class="footer-link">Contact Us</a>
+            <a href="support.html" class="footer-link">Support</a>
+            <a href="data-policy.html" class="footer-link">Data Policy</a>
+        </div>
+        <p class="footer-text">© 2025 Voicle. All rights reserved.</p>
+    </footer>
+
+    <script>
+        class WaveAnimation {
+            constructor() {
+                this.soundWave = document.getElementById('soundWave');
+                this.bars = [];
+                this.init();
+                this.animate();
+                
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    this.cleanup();
+                    this.init();
+                });
+            }
+
+            init() {
+                // Calculate number of bars based on screen width
+                const screenWidth = window.innerWidth;
+                const barWidth = 11; // 1px bar width + 10px gap
+                this.barCount = Math.floor(screenWidth / barWidth);
+                
+                // Create bars
+                for (let i = 0; i < this.barCount; i++) {
+                    this.createBar(i);
+                }
+            }
+
+            createBar(index) {
+                const bar = document.createElement('div');
+                bar.className = 'wave-bar';
+                
+                // Random height between 6vh and 25vh
+                const minHeight = 6;
+                const maxHeight = 25;
+                const height = minHeight + Math.random() * (maxHeight - minHeight);
+                
+                // Individual animation timing for each bar
+                const animationDuration = 1.2 + Math.random() * 0.8; // 1.2-2.0s
+                const animationDelay = Math.random() * 2; // 0-2s delay
+                
+                bar.style.height = `${height}vh`;
+                bar.style.animationDuration = `${animationDuration}s`;
+                bar.style.animationDelay = `${animationDelay}s`;
+                
+                this.soundWave.appendChild(bar);
+                this.bars.push({
+                    element: bar,
+                    baseHeight: height,
+                    duration: animationDuration,
+                    delay: animationDelay,
+                    phase: Math.random() * Math.PI * 2 // Random starting phase
+                });
+            }
+
+            animate() {
+                // Use requestAnimationFrame for smooth animation
+                const animateFrame = (timestamp) => {
+                    this.bars.forEach((bar, index) => {
+                        // Calculate wave effect with individual timing
+                        const time = (timestamp + bar.delay * 1000) / 1000;
+                        const wave = Math.sin(time * (2 * Math.PI / bar.duration) + bar.phase);
+                        
+                        // Scale between 0.3 and 1.0
+                        const scale = 0.3 + (wave + 1) / 2 * 0.7;
+                        
+                        // Apply opacity variation
+                        const opacity = 0.3 + (wave + 1) / 2 * 0.4;
+                        
+                        bar.element.style.transform = `scaleY(${scale})`;
+                        bar.element.style.opacity = opacity;
+                    });
+                    
+                    requestAnimationFrame(animateFrame);
+                };
+                
+                requestAnimationFrame(animateFrame);
+            }
+
+            cleanup() {
+                this.bars.forEach(bar => {
+                    if (bar.element && bar.element.parentNode) {
+                        bar.element.parentNode.removeChild(bar.element);
+                    }
+                });
+                this.bars = [];
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new WaveAnimation();
+        });
+    </script>
+</body>
+</html>
