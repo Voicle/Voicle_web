@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voicle - Minimalistic Interface</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="src/components/pre-registration/pre-registration.css">
 </head>
 <body>
     <!-- Background Sound Wave Animation -->
@@ -15,12 +16,16 @@
     <div class="main-content">
         <div class="logo-container">
             <div class="logo">
-                <img  src="./src/assets/images/logos/logo_voicle.png" alt="Voicle Logo" class="logo-image" width="220px">
+                <img  src="./src/assets/images/logos/logo_voicle_2.png" alt="Voicle Logo" class="logo-image" width="220px">
             </div>
             
             <div class="tagline">Let your voice flirt first!</div>
         </div>
 
+        <!-- Pre-Registration Form -->
+        <div id="preRegistrationContainer"></div>
+
+        <!-- Commented out download section for pre-launch
         <div class="download-section">
             <div class="download-buttons">
                 <button class="download-btn android-btn">
@@ -50,6 +55,7 @@
                 </button>
             </div>
         </div>
+        -->
     </div>
 
     <footer class="footer">
@@ -64,6 +70,9 @@
         </div>
         <p class="footer-text">© 2025 Voicle. All rights reserved.</p>
     </footer>
+
+    <!-- Load Components -->
+    <script src="src/components/pre-registration/pre-registration.js"></script>
 
     <script>
         class WaveAnimation {
@@ -155,7 +164,11 @@
 
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize wave animation
             new WaveAnimation();
+            
+            // Initialize pre-registration form
+            new PreRegistrationForm('preRegistrationContainer');
         });
     </script>
 </body>
