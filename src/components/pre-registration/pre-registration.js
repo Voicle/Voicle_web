@@ -12,8 +12,8 @@ class PreRegistrationForm {
     render() {
         const formHTML = `
             <div class="pre-registration-section">
-                <div class="pre-reg-title">Join the Revolution</div>
-                <div class="pre-reg-subtitle">Be among the first to experience voice-first dating</div>
+                <div class="pre-reg-title">Wanna Be First?</div>
+                <div class="pre-reg-subtitle">Hop in early and we’ll ping you when the magic drops.</div>
                 
                 <form class="pre-reg-form" id="preRegForm">
                     <!-- Row 1: Name and Gender -->
@@ -93,10 +93,10 @@ class PreRegistrationForm {
                         <div class="next-steps">
                             <h4>What happens next?</h4>
                             <ul class="next-steps-list">
-                                <li>✉️ You'll receive a confirmation email shortly</li>
-                                <li>📱 We'll keep you updated on our development progress</li>
-                                <li>🚀 You'll get early access when we launch</li>
-                                <li>⭐ Exclusive updates and behind-the-scenes content</li>
+                                <li>You'll receive a confirmation email shortly</li>
+                                <li>We'll keep you updated on our development progress</li>
+                                <li>You'll get early access when we launch</li>
+                                <li>Exclusive updates and behind-the-scenes content</li>
                             </ul>
                         </div>
                     </div>
