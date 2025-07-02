@@ -48,7 +48,7 @@ class PreRegistrationForm {
                                 id="mobile" 
                                 name="mobile" 
                                 class="form-input" 
-                                placeholder="Mobile number (e.g., +917500617407)"
+                                placeholder="Mobile number"
                                 required
                             >
                             <div class="error-message" id="mobileError"></div>
@@ -176,7 +176,7 @@ class PreRegistrationForm {
         // Basic mobile number validation
         const mobileRegex = /^\+?[1-9]\d{1,14}$/;
         if (!mobileRegex.test(mobile)) {
-            this.showError('mobileError', 'Please enter a valid mobile number with country code (e.g., +917500617407)');
+            this.showError('mobileError', 'Please enter a valid mobile number with country code');
             return false;
         }
         
